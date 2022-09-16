@@ -1,0 +1,10 @@
+version: '3'
+services:
+  server:
+    image: nginx
+    ports:
+      - "7443:443"
+    volumes:
+      - ./index.html/:/www/data/index.html
+      - ./my.conf:/etc/nginx/nginx.conf
+      - ${CERTIFICATE_PATH:-./myssl/}:/www/ssl
